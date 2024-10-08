@@ -10,20 +10,26 @@ class Tamagotchi
 
     public void Feed()
     {
-        hunger = hunger-2;
+        Console.WriteLine($"You feed {name} and he gets less hungry");
+        hunger -=2;
+
+        if(hunger > 0)
+        {
+            hunger = 0;
+        }
     }
 
     public void Hi()
     {
-        Console.WriteLine(words);
+        int wordNum = Random.Shared.Next(words.Count);
+        Console.WriteLine($"{name} says: {words[wordNum]}");
         ReduceBoredom();
     }
 
     public void Teach(string word)
     {
+        Console.WriteLine($"{name} learned '{word}'");
         words.Add(word);
-
-        
         ReduceBoredom();
     }
 
@@ -48,17 +54,17 @@ class Tamagotchi
 
         if (boredom >= 4 && boredom != 9)
         {
-            Console.WriteLine("Your tomagotchi is getting hungry");
+            Console.WriteLine($"{name} is getting hungry");
         }
         
         if (hunger >= 4 && hunger != 9)
         {
-            Console.WriteLine("Your tomagotchi is getting bored");
+            Console.WriteLine($"{name} is getting bored");
         }
 
         else
         {
-            Console.WriteLine("Your tamagotchi is happy and fed");
+            Console.WriteLine($"{name} is happy and fed");
         }
         Console.WriteLine();
         Console.Write($"Your tamagotchi has {hunger} hunger and {boredom} boredom. Make sure none get to 10!!");
@@ -71,7 +77,12 @@ class Tamagotchi
 
     private void ReduceBoredom()
     {
-        boredom--;
+        boredom -=2;
+
+        if (boredom > 0)
+        {
+            boredom = 0;
+        }
     }
 
 }
