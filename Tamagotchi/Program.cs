@@ -39,12 +39,25 @@ while (tama.GetAlive() == true)
 
     if (action == "3")
     {
-        
+        tama.Feed();
     }
+
+    if (action == "4")
+    {
+        Console.WriteLine("You sit and stare at your tamagotchi. It gets uncomfortable...");
+    }
+
+    while (action != "1" && action != "2" && action != "3" && action != "4")
+    {
+        Console.WriteLine("That's not an option");
+        action = Console.ReadLine();
+    }
+
+    tama.Tick();
+    Console.WriteLine("Press any key to continue");
+    Console.ReadKey();
 }
 
-
-
-
-
+Console.WriteLine($"OH SHIT. {tama.name} died");
+Console.WriteLine("Press any key to quit");
 Console.ReadKey();

@@ -21,9 +21,18 @@ class Tamagotchi
 
     public void Hi()
     {
-        int wordNum = Random.Shared.Next(words.Count);
-        Console.WriteLine($"{name} says: {words[wordNum]}");
-        ReduceBoredom();
+        if (words.Count == 0)
+        {
+            Console.WriteLine($"{name} does not know any words yet, you gotta teach it something first");
+        }
+
+        else if (words.Count < 0)
+        {
+            int wordNum = Random.Shared.Next(words.Count);
+            Console.WriteLine($"{name} says: {words[wordNum]}");
+            ReduceBoredom();
+        }
+
     }
 
     public void Teach(string word)
