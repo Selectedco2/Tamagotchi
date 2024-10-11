@@ -7,7 +7,10 @@ class Tamagotchi
     private Random generator;
     public string name;
 
-
+    public Tamagotchi()
+    {
+        isAlive = true;
+    }
     public void Feed()
     {
         Console.WriteLine($"You feed {name} and he gets less hungry");
@@ -46,7 +49,12 @@ class Tamagotchi
     {
         hunger++;
         boredom++;
-        isAlive = hunger < 10 && boredom < 10;
+        
+            if (hunger > 10 || boredom > 10)
+
+                {
+                    isAlive = false;
+                }
     }
 
     public void PrintStats()
@@ -76,12 +84,12 @@ class Tamagotchi
             Console.WriteLine($"{name} is happy and fed");
         }
         Console.WriteLine();
-        Console.Write($"Your tamagotchi has {hunger} hunger and {boredom} boredom. Make sure none get to 10!!");
+        Console.Write($"Your tamagotchi has {hunger} hunger and {boredom} boredom.  Make sure none get to 10!!");
     }
 
     public bool GetAlive()
     {
-        return true;
+        return isAlive;
     }
 
     private void ReduceBoredom()

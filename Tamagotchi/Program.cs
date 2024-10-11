@@ -17,6 +17,7 @@ while (tama.GetAlive() == true)
 {
     Console.Clear();
     tama.PrintStats(); 
+    Console.WriteLine("");
     Console.WriteLine("What would you like to do now?");
     Console.WriteLine($"1. Teach {tama.name} a new word");
     Console.WriteLine($"2. Talk to {tama.name}");
@@ -58,6 +59,7 @@ while (tama.GetAlive() == true)
     Console.ReadKey();
 }
 
+Console.Clear();
 Console.WriteLine($"OH SHIT. {tama.name} died");
 Console.WriteLine("Press any key to quit");
 Console.ReadKey();
